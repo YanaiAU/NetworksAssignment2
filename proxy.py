@@ -132,11 +132,12 @@ def client_handler(client_socket: socket.socket, client_address: tuple[str, int]
         while True:
             # Receive data from the client
             # * Fill in start (3)
-            data = data = client_socket.recv(api.BUFFER_SIZE/8)
+            data = data = client_socket.recv(int(api.BUFFER_SIZE/8))
             '''
             The recv(api.BUFFER_SIZE) function returns the bytes sent from the client to the proxy, 
             we then store the bytes in our data variable. The size of the information in bytes that we 
-            want to receive will be the BUFFER_SIZE variable from api.pi because
+            want to receive will be the BUFFER_SIZE variable from api.pi divided by 8 so that we get the size in bytes
+            (BUFFER_SIZE is 65536 bits and that is equal to 8192 bytes)
             '''
             # * Fill in end (3)
             

@@ -136,7 +136,7 @@ def client_handler(client_socket: socket.socket, client_address: tuple[str, int]
         while True:
 
             # * Fill in start (3)
-            data = client_socket.recv(api.BUFFER_SIZE/8)
+            data = client_socket.recv(int(api.BUFFER_SIZE/8))
             '''
             The recv(api.BUFFER_SIZE/8) function returns the bytes sent from the client to the server, we then store the
              bytes in our data variable. The size of the information in bytes that we want to receive according
